@@ -1,11 +1,11 @@
 ########### Python 3.6 #############
 import requests
 
-appid = '60340f5f-99c1-4043-8ab9-c810ff16252d'
+appid = '<app id>'
 
 headers = {
     # Request headers
-    'Ocp-Apim-Subscription-Key': '03e69d3426dd44a8824163114261cc26',
+    'Ocp-Apim-Subscription-Key': '<subscription id>',
 }
 
 params ={
