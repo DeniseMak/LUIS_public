@@ -1,0 +1,46 @@
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the lights. Error: The intent classifier TurnAllOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the right lights. Error: The intent classifier TurnAllOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the right lights. Error: The intent classifier TurnAllOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the floor lights. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the floor light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the right light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn off the floor light. Error: The intent classifier TurnOff does not exist in the selected application"}}
+{"value":{"UtteranceText":"turn on the right lighttimezoneoffset=0","ExampleId":-10905074},"hasError":false}
+{"value":{"UtteranceText":"turn on the right lighttimezoneoffset=0","ExampleId":-10905074},"hasError":false}
+{"value":{"UtteranceText":"turn on the right lighttimezoneoffset=0","ExampleId":-10905074},"hasError":false}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":{"UtteranceText":"turnonlight","ExampleId":-8217139},"hasError":false}
+{"value":{"UtteranceText":"turnonlight","ExampleId":-8217139},"hasError":false}
+{"value":{"UtteranceText":"turnonlight","ExampleId":-8217139},"hasError":false}
+{"value":{"UtteranceText":"turnonlight","ExampleId":-8217139},"hasError":false}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":{"UtteranceText":"turn%20on%20left%20light","ExampleId":-10905075},"hasError":false}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left lighttimezoneOffset=0. Error: The intent classifier TurnOn does not exist in the selected application"}}
+{"value":null,"hasError":true,"error":{"code":"FAILED","message":"turn on the left light. Error: The intent classifier TurnOn does not exist in the selected application"}}
