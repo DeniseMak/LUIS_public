@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSSample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+    <form id="LUIS_query" >
+        <input size="60" type="text" name="LUIS_accessid">LUIS Programmatic Key<br>
+        <input size="60" type="test" name="LUIS_appid">LUIS App Id<br>
+        <input size="60" type="text" name="LUIS_query">LUIS Query<br>
+
+        <input id="submit" type="button" value="submit">
+    </form>
+    <div id="LUIS_response"></div>
+<script type="text/javascript">
+
+
+$('#submit').on('click', function(){
+
+
+    var params = {
+        // These are optional request parameters. They are set to their default values.
+        "timezoneOffset": "0",
+        "verbose": "false",
+        "spellCheck": "false",
+        "staging": "false",
+    };
+
+    var form_values = {};
+    $.each($('#LUIS_query').serializeArray(), function(i, field) {
+        form_values[field.name] = field.value;
+    });
+
+    $.ajax({
+        url: "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + form_values["LUIS_appid"] + "?q=" + form_values["LUIS_query"] + "&" + $.param(params),
+        beforeSend: function(xhrObj){
+            // Request headers
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key",form_values["LUIS_accessid"]);
+        },
+        type: "GET",
+    })
+    .done(function(data) {
+        // Display a popup containing the top intent
+        //alert("Detected the following intent: " + data.topScoringIntent.intent);
+        console.log(data);
+        $('#LUIS_response').html(JSON.stringify(data));
+    })
+    .fail(function(error) {
+        console.log(error);
+        $('#LUIS_response').html(error);
+    });
+       
+});
+</script>
+</body>
+</html>
