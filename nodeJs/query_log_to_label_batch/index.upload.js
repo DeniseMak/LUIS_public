@@ -5,14 +5,6 @@ var rp = require('request-promise');
 var fs = require('fs-extra');
 var path = require('path');
 
-var config = {
-    "LUIS_subscriptionKey": "<subscriptionKey>",
-    "LUIS_appId": "<appId>",
-    "LUIS_versionId": "0.1"
-};
-
-config.inFile = path.join(__dirname, "./utterances.json");
-config.uri = "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId);
 
 // main function to call
 var upload = async (config) => {
@@ -71,6 +63,16 @@ module.exports = upload;
 
 /* 
 //example usage
+
+var config = {
+    "LUIS_subscriptionKey": "<subscriptionKey>",
+    "LUIS_appId": "<appId>",
+    "LUIS_versionId": "0.1"
+};
+
+config.inFile = path.join(__dirname, "./utterances.json");
+config.uri = "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId);
+
 
 upload(config).then(output => {
     console.log(JSON.stringify(output.response));
