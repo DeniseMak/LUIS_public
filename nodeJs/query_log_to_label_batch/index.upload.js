@@ -9,6 +9,7 @@ var path = require('path');
 // main function to call
 var upload = async (config) => {
 
+    try{
     // request options
     config.options = {
         uri: config.uri,
@@ -23,26 +24,37 @@ var upload = async (config) => {
         success: {},
         error: {}
     };
-
+    console.log("upload");
     return await getBatchFromFile(config)
         .then(sendBatchToApi)
-        .catch(err => {
-            config.response.error.upload = err;
-            return config;
+        .then(response => {
+            console.log("upload done");
+            return response;
         });
+        
+    } catch(err){
+        config.response.error.upload = err;
+        return config;        
+    }
 
 }
 // get json from file - already formatted for this api
 var getBatchFromFile = async (config) => {
     try {
+        console.log("getBatchFromFile");
+        console.log(config.inFile);
 
         var inFile = await fs.readFile(config.inFile, 'utf-8');
-        config.options.body = JSON.parse(inFile);
+
+        console.log(inFile);
+        config.options.body = inFile;
+        console.log(config.options.body);
         config.response.success.getBatchFromFile = true;
 
         return config;
 
     } catch (err) {
+        console.log(err);
         config.response.error.getBatchFromFile = err;
         return config;
     }
@@ -50,11 +62,14 @@ var getBatchFromFile = async (config) => {
 // send json as post.body to api
 var sendBatchToApi = async (config) => {
     try {
+        console.log("sendBatchToApi");
         config.response.success.apiResponse = await rp.post(config.options);
+
         return config;
     }
     catch (err) {
         config.response.error.sendBatchToApi = err;
+        console.log("sendBatchToApi failed = " + err.response.statusCode + " " + err.response.statusMessage);
         return err;
     }
 }
@@ -65,9 +80,9 @@ module.exports = upload;
 //example usage
 
 var config = {
-    "LUIS_subscriptionKey": "<subscriptionKey>",
-    "LUIS_appId": "<appId>",
-    "LUIS_versionId": "0.1"
+    LUIS_subscriptionKey: "<subscriptionKey>",
+    LUIS_appId: "<appId>",
+    LUIS_versionId: "0.1"
 };
 
 config.inFile = path.join(__dirname, "./utterances.json");

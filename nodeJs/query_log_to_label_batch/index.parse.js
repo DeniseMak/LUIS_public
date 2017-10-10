@@ -6,6 +6,8 @@ const path = require('path');
 const lineReader = require('line-reader');
 const Promise = require('bluebird');
 const babyparse = require("babyparse");
+var eachLine = Promise.promisify(lineReader.eachLine);
+
 
 // rewrite each items properties and values
 function mapEntity(entities) {
@@ -64,48 +66,49 @@ var utterance = function (i, rowAsString) {
 // main function to call
 // read stream line at a time
 // conversion happens in precess.convert_utterance_map file
-function convert(config, callback) {
+const parse = async (config) => {
 
-    var i = 0;
+    try{
 
-    // create out file
-    var myOutFile = fse.createWriteStream(config.outFile, 'utf-8');
-    myOutFile.write('[');
+        var i = 0;
 
-    // create in file reader
-    var lineReader = require('readline').createInterface({
-        input: require('fs').createReadStream(config.inFile, 'utf-8')
-    });
+        // get inFile stream
+        inFileStream = await fse.createReadStream(config.inFile, 'utf-8')
 
-    // read 1 line
-    lineReader.on('line', function (line) {
+        // create out file
+        var myOutFile = await fse.createWriteStream(config.outFile, 'utf-8');
+        myOutFile.write('[');
 
-        // skip first line with headers
-        if (i++ == 0) return;
+        // read 1 line
+        eachLine(inFileStream, (line) => {
 
-        console.log(i);
+            // skip first line with headers
+            if (i++ == 0) return;
 
-        // transform utterance from csv to json
-        jsonUtterance = utterance((i - 1), line);
+            //console.log(i);
 
-        // write to out stream
-        if (i > 2) myOutFile.write(",");
-        myOutFile.write(JSON.stringify(jsonUtterance));
+            // transform utterance from csv to json
+            jsonUtterance = utterance((i - 1), line);
 
-    });
+            // write to out stream
+            if (i > 2) myOutFile.write(",");
+            myOutFile.write(JSON.stringify(jsonUtterance));
 
-    // stream is done reading file
-    lineReader.on('close', function () {
+        }).then(() => {
+            myOutFile.write(']');
+            myOutFile.end();
+            console.log("parse done");
+            return config;
+        });
 
-        // close write stream
-        myOutFile.write(']');
-        myOutFile.end();
-        callback('done');
-    });
+    }catch (err) {
+        config.response.error.parse = err;
+        return config;
+    }
 
 }
 
-module.exports = convert;
+module.exports = parse;
 
 /* 
 //example usage
@@ -114,7 +117,7 @@ var config = {};
 config.inFile = path.join(__dirname, "./utterances.csv");
 config.outFile = path.join(__dirname, "./utterances.json");
 
-convert(config, (response) => {
+parse(config, (response) => {
     console.log(response);
 });
 

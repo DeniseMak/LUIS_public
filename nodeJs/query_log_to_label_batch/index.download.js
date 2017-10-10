@@ -1,3 +1,6 @@
+// node 7.x
+// uses async/await - promises
+
 var rp = require('request-promise');
 var fs = require('fs-extra');
 var path = require('path');
@@ -5,13 +8,26 @@ var path = require('path');
 const download = async (config) => {
 
     try{
+
+      config.options = {
+        uri: config.uri,
+        method: 'GET',
+        headers: {
+          'Ocp-Apim-Subscription-Key': config.LUIS_subscriptionKey
+        }
+      };
+      
         config.response = {
             success: {},
             error: {}
         };
 
         return getApi(config)
-        .then(writeFile);
+        .then(writeFile)
+        .then(response => {
+          console.log("download done");
+          return response;
+        });
 
      } catch(err){
         config.response.error.download = err;
@@ -21,8 +37,8 @@ const download = async (config) => {
 
 const writeFile = async (config) => {
 
-  try {  
-    config.response.success.writeFile = await fs.writeFile(config.fileOut,config.response.success.getApi, 'utf-8');
+  try { 
+    config.response.success.writeFile = await fs.writeFile(config.outFile,config.response.success.getApi, 'utf-8');
     return config;
   }
   catch (err) {
@@ -48,20 +64,13 @@ module.exports = download;
 /* 
 //example usage
 
-const LUIS_subscriptionKey = "<subscription key>";
-const LUIS_appId = "<appid>";
-
 var config = {
-    fileOut: "./utterances.csv"
+    LUIS_subscriptionKey: "<subscriptionKey>",
+    LUIS_appId: "<appId>"
 };
 
-config.options = {
-  uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/querylogs".replace("{appId}",LUIS_appId),
-  method: 'GET',
-  headers: {
-    'Ocp-Apim-Subscription-Key': LUIS_subscriptionKey
-  }
-};
+config.outFile = path.join(__dirname, "./utterances.csv");
+config.uri = "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/querylogs".replace("{appId}",LUIS_appId);
 
 download(config).then(output => {
   console.log("done");  
